@@ -58,18 +58,21 @@ Cloudflare D1 adalah database relasional SQL serverless yang berbasis SQLite.
    ```
 4. Buka file `wrangler.jsonc` di text editor Anda, lalu pastikan isinya telah disesuaikan dengan konfigurasi database Anda:
    ```json
-   {
-     "name": "akademik-dashboard",
-     "main": "src/index.js",
-     "compatibility_date": "2026-06-30",
-     "d1_databases": [
-       {
-         "binding": "akademik_db",
-         "database_name": "akademik-db",
-         "database_id": "MASUKKAN_DATABASE_ID_ANDA_DISINI"
-       }
-     ]
-   }
+    {
+      "name": "akademik-dashboard",
+      "main": "src/index.js",
+      "compatibility_date": "2026-06-30",
+      "assets": {
+        "directory": "./public"
+      },
+      "d1_databases": [
+        {
+          "binding": "akademik_db",
+          "database_name": "akademik-db",
+          "database_id": "MASUKKAN_DATABASE_ID_ANDA_DISINI"
+        }
+      ]
+    }
    ```
    > 💡 **PENTING**: Pastikan nama binding adalah `"akademik_db"` karena kode JavaScript backend kita memanggil database menggunakan nama tersebut.
 
